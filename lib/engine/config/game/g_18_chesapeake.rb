@@ -249,6 +249,7 @@ module Engine
       "abilities": [
         {
           "type": "blocks_hexes",
+          "owner_type": "player",
           "hexes": [
             "K3"
           ]
@@ -264,10 +265,25 @@ module Engine
       "abilities": [
         {
           "type": "blocks_hexes",
+          "owner_type": "player",
           "hexes": [
             "H2",
             "I3"
           ]
+        },
+        {
+          "type": "tile_lay",
+          "owner_type": "corporation",
+          "hexes": [
+            "H2",
+            "I3"
+          ],
+          "tiles": [
+            "8",
+            "9"
+          ],
+          "when": "track",
+          "count": 2
         }
       ]
     },
@@ -280,6 +296,7 @@ module Engine
       "abilities": [
         {
           "type": "blocks_hexes",
+          "owner_type": "player",
           "hexes": [
             "F4",
             "G5"
@@ -291,11 +308,12 @@ module Engine
       "name": "Chesapeake and Ohio Canal",
       "value": 80,
       "revenue": 15,
-      "desc": "Blocks hex D2 while owned by a player.Owning company may place a tile in hex D2.The company does not need to have a route to this hex.The tile placed counts as the company’ s tile lay action and the company must pay the terrain cost.The company may then immediately place a station token free of charge.",
+      "desc": "Blocks hex D2 while owned by a player. Owning company may place a tile in hex D2.The company does not need to have a route to this hex.The tile placed counts as the company’ s tile lay action and the company must pay the terrain cost.The company may then immediately place a station token free of charge.",
       "sym": "C&OC",
       "abilities": [
         {
           "type": "blocks_hexes",
+          "owner_type": "player",
           "hexes": [
             "D2"
           ]
@@ -306,13 +324,25 @@ module Engine
       "name": "Baltimore & Ohio Railroad",
       "value": 100,
       "revenue": 0,
-      "desc": "During game setup place one share of the Baltimore & Ohio public company with this certificate.The player purchasing this private immediately takes both the private company and the B & O share.This private company has no other special ability."
+      "desc": "During game setup place one share of the Baltimore & Ohio public company with this certificate.The player purchasing this private immediately takes both the private company and the B & O share.This private company has no other special ability.",
+      "abilities": [
+        {
+          "type": "share",
+          "share": "B&O_1"
+        }
+      ]
     },
     {
       "name": "Cornelius Vanderbilt",
       "value": 200,
       "revenue": 30,
-      "desc": "During game setup select a random president’s certificate and place it with this certificate.The player purchasing this private company takes both this certificate and the randomly selected president’ s certificate.The player immediately sets the par value of the public company.This private closes when the associated public company buys it’s first train."
+      "desc": "During game setup select a random president’s certificate and place it with this certificate.The player purchasing this private company takes both this certificate and the randomly selected president’ s certificate.The player immediately sets the par value of the public company.This private closes when the associated public company buys it’s first train.",
+      "abilities": [
+        {
+          "type": "share",
+          "share": "random-president"
+        }
+      ]
     }
   ],
   "corporations": [
@@ -341,7 +371,7 @@ module Engine
         60
       ],
       "coordinates": "A3",
-      "color": "#9a9a9d"
+      "color": "black"
     },
     {
       "float_percent": 60,
@@ -350,8 +380,7 @@ module Engine
       "logo": "18_chesapeake/SRR",
       "tokens": [
         0,
-        40,
-        60
+        40
       ],
       "coordinates": "H4",
       "color": "#d81e3e"
@@ -381,7 +410,8 @@ module Engine
         80
       ],
       "coordinates": "G13",
-      "color": "#37b2e2"
+      "color": "#A2DCED",
+      "text_color": "black"
     },
     {
       "float_percent": 60,
@@ -393,7 +423,8 @@ module Engine
         40
       ],
       "coordinates": "J2",
-      "color": "#f8c200"
+      "color": "#FFF500",
+      "text_color": "black"
     },
     {
       "float_percent": 60,
@@ -409,7 +440,7 @@ module Engine
     },
     {
       "float_percent": 60,
-      "sym": "NW",
+      "sym": "N&W",
       "name": "Norfolk & Western Railway",
       "logo": "18_chesapeake/NW",
       "tokens": [
@@ -540,7 +571,7 @@ module Engine
       ]
     },
     "red": {
-      "o=r:yellow_40|green_50|brown_60|gray_80;c=r:0;p=a:5,b:_0": [
+      "c=r:yellow_40|green_50|brown_60|gray_80;p=a:5,b:_0": [
         "A3"
       ],
       "o=r:yellow_40|green_50|brown_60|gray_80;p=a:0,b:_0": [
@@ -598,6 +629,7 @@ module Engine
       "tiles": [
         "yellow"
       ],
+      "buy_companies": true,
       "operating_rounds": 1
     },
     {
